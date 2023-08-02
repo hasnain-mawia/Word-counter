@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Word - Counter</title>
+</head>
+<body>
+    <div id="main">
+        <div class="counter">
+            <div class="head">
+                <h1>Word Counter </h1></div>
+            <textarea name="" id="textbox" cols="30" rows="10"></textarea>
+            <div class="text">
+               <h4> <span id="word"> 0 </span> Word and </h4>&nbsp;
+                <h4><span id="char"> 0 </span> Charecters </h4>
+            </div>
+        </div>
+
+    </div>
+
+
+
+<script>
+   let textbox = document.getElementById('textbox');
+   textbox.addEventListener('input', function(){
+        let text = textbox.value;
+        let char = text.length;
+        document.getElementById('char').innerHTML = char;
+        
+        text = text.trim();
+        let word = text.split(' ')
+        let clearFilter = word.filter((val)=>{
+            return val != "";
+        })    
+        // console.log(clearFilter);
+        document.getElementById('word').innerHTML = clearFilter.length;
+   }); 
+
+
+
+
+</script>
+</body>
+</html>
